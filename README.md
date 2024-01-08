@@ -1,9 +1,16 @@
 # Doe-Sangue-Doe-Vida
 
-#Sistema de Agendamento de Doação de Sangue Visão Geral
+##Sistema de Agendamento de Doação de Sangue Visão Geral
 
 Este projeto é um sistema de agendamento de doação de sangue, desenvolvido com o objetivo de facilitar o processo de agendamento de doações de sangue. O sistema permite que os usuários se registrem, escolham um hemonúcleo próximo e agendem suas doações de sangue de forma conveniente.
 Funcionalidades Principais
+
+## 🖥️ Modelos
+🖥️ Modelo 1                                                                                    | 🖥️ Modelo 2                                                                                  | 🖥️ Modelo 2   
+:----------:                                                                                   | :--------------:                                                                             | :--------------:
+[![Tela inicial](https://github.com/danielcperalba/Doe-Sangue-Doe-Vida/assets/81268953/0a89bf3f-3e56-4162-9f1b-9f259cc3d095)   | [![Tela de Login](https://github.com/danielcperalba/Doe-Sangue-Doe-Vida/assets/81268953/e68bbcbd-8b0e-4b17-92d5-7e56078bdcd8)
+ | [<img src="public/assets/front-end-3.png" width="300px" />](readme-front-end/front-end-3.md)
+
 
 Registro de Usuários: Permite que os usuários se cadastrem no sistema, fornecendo informações pessoais, de contato e de saúde relevantes.
 Localização de Hemonúcleos: Ajuda os usuários a encontrar hemonúcleos próximos com base em sua localização ou preferência.
@@ -18,13 +25,11 @@ SQL Server: Banco de dados relacional usado para armazenar informações de usu�
 HTML/CSS: Para criação da interface do usuário e estilização.
 Como Iniciar
 
-Requisitos do Ambiente:
+## 🔎 Como usar
 
 Visual Studio: Recomendado para desenvolvimento.
 SQL Server: Para criar e gerenciar o banco de dados.
 .NET Framework: Certifique-se de que o .NET Framework esteja instalado no seu sistema.
-Clonar o Repositório:
-
 git clone https://github.com/Marcosvco13/Projeto_Integrador_2.git
 Configurar o Banco de Dados:
 
