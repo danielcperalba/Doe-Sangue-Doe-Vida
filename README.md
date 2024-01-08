@@ -6,9 +6,14 @@ Este projeto é um sistema de agendamento de doação de sangue, desenvolvido co
 Funcionalidades Principais
 
 ## 🖥️ Telas
-🖥️ Tela Inicial                                                                                    | 🖥️ Tela de Login                                                                                  | 🖥️ Tela de Datas   
-:----------:                                                                                   | :--------------:                                                                             | :--------------:
-![Tela inicial](https://github.com/danielcperalba/Doe-Sangue-Doe-Vida/assets/81268953/0a89bf3f-3e56-4162-9f1b-9f259cc3d095)   | ![Tela de Login](https://github.com/danielcperalba/Doe-Sangue-Doe-Vida/assets/81268953/e68bbcbd-8b0e-4b17-92d5-7e56078bdcd8) | ![Datas Disponiveis](https://github.com/danielcperalba/Doe-Sangue-Doe-Vida/assets/81268953/b8de664f-ad19-42e2-a284-d3106599884a)
+🖥️ Tela Inicial                                                                                    | 🖥️ Tela de Login                                                                                     
+:----------:                                                                                   | :--------------:                                                                             | 
+![Tela inicial](https://github.com/danielcperalba/Doe-Sangue-Doe-Vida/assets/81268953/0a89bf3f-3e56-4162-9f1b-9f259cc3d095)   | ![Tela de Login](https://github.com/danielcperalba/Doe-Sangue-Doe-Vida/assets/81268953/e68bbcbd-8b0e-4b17-92d5-7e56078bdcd8)
+
+🖥️ Tela Inicial                                                                                    | 🖥️ Tela do Termo                                                                                     
+:----------:                                                                                   | :--------------:                                                                             |     
+|![Datas Disponiveis](https://github.com/danielcperalba/Doe-Sangue-Doe-Vida/assets/81268953/b8de664f-ad19-42e2-a284-d3106599884a)   | ![Termo](https://github.com/danielcperalba/Doe-Sangue-Doe-Vida/assets/81268953/b0f21bb5-5a52-48ad-9ff7-ca5efdd92ab0)
+
 
 
 
