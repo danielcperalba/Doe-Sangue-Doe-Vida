@@ -1,0 +1,116 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using Projeto_Integrador.Areas.Identity.Data
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @inject SignInManager<UsuarioModel> SignInManager
+
+    <meta charset="utf-8" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Doe Sangue. Doe Vida!</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Projeto_Integrador.styles.css" asp-append-version="true" />
+    <link href="~/css/indexstyles.css" rel="stylesheet" />
+    <link href="~/css/headerstyles.css" rel="stylesheet" />
+    <link href="~/css/registerstyles.css" rel="stylesheet" />
+    <link href="~/css/loginstyles.css" rel="stylesheet" />
+    <link href="~/css/telascrud.css" rel="stylesheet" />
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+
+            <div class="logoContent d-flex justify-content-center align-items-center">
+                <img src="~/imgs/logo-clinica.svg" />
+                <span class="h1 fw-bold mb-0 ms-lg-3 text-light">DSDV</span>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50" asp-area="" asp-controller="Home" asp-action="Sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50" asp-area="" asp-controller="Home" asp-action="Requisitos">Requisitos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50" asp-area="" asp-controller="Home" asp-action="Contato">Contato</a>
+                    </li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="LocaisDoacao" asp-action="Index">Locais</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="Datas" asp-action="Index">Datas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="GenDoacoes" asp-action="Index">Gerenciar Doações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="Home" asp-action="Termo">Termo de Doação</a>
+                        </li>
+                    }
+                    @if (User.IsInRole("Hemocentro"))
+                    {
+                        
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="Datas" asp-action="Index">Datas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="GenDoacoes" asp-action="Index">Gerenciar Doações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="Home" asp-action="Termo">Termo de Doação</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="Fichas" asp-action="Index">Minha Ficha</a>
+                        </li>
+                    }
+                    else if (SignInManager.IsSignedIn(User))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="Doacao" asp-action="Index">Agendar Doação</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="Fichas" asp-action="Index">Minha Ficha</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            @Html.Partial("_LoginPartial")
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Doe sangue. Doe vida! - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

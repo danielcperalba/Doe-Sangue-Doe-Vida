@@ -1,0 +1,139 @@
+﻿@model IEnumerable<Projeto_Integrador.ViewModel.DataVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
+    <div class="container-fluid">
+        <div class="row bg-light mt-0 d-flex align-items-center shadow-sm">
+            <div class="col">
+                <h2 class="text-muted">Datas Disponíveis</h2>
+            </div>
+
+            <div class="col-auto me-xxl-4">
+                <button class="create btn-sm d-flex align-items-center gap-1">
+                    <img src="~/imgs/plus-lg.svg" style="width: 1rem; height: 1rem; filter: invert(1);" />
+                    Cadastrar Nova Data
+                </button>
+            </div>
+            <hr class="col-12 mt-0" />
+        </div>
+
+        <div class="row m-md-5">
+
+            <div class="row row-cols-1 row-cols-md-4 g-3  mt-0">
+
+                @foreach (var item in Model)
+                {
+                    <div class="col mb-3">
+                        <div class="card shadow-sm bg-light w-100 border-start border-5 border-dark" >
+                            <div class="card-body">
+                                <h5 class="card-text heading mb-1 mt-3"> @item.nomeLocal</h5>
+                                <h6 class="card-text mb-1">Data: @item.Data</h6>
+                                <h6 class="card-text mb-4">
+                                    Disponível:
+                                    <td>
+                                        @if (item.Disponivel == 0)
+                                        {
+                                            <span class="badge badge-success rounded-pill d-inline" style="background: #cff6dd; color: #1fa750">Sim</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-success rounded-pill d-inline" style="background: #fdf5dd; color: #cfa00c">Não</span>
+                                        }
+                                    </td>
+                                </h6>
+
+                                <hr class="col-12 mt-0 mb-2" />
+
+                                <div class="d-flex justify-content-between ">
+                                    <button class="btn details " data-value="@item.id">
+                                        <img src="~/imgs/book-half.svg" style="max-width: 18px; max-height: 18px;" />
+                                        Detalhes
+                                    </button>
+                                    <button class="btn edit " data-value="@item.id">
+                                        <img src="~/imgs/pencil-square.svg" style="max-width: 18px; max-height: 18px;" />
+                                        Editar
+                                    </button>
+                                    <a href="#" class="btn Delete" onclick="confirmarExclusao('@Url.Action("Delete", new { id = item.id })')">
+                                        <img src="~/imgs/trash-fill.svg" style="max-width: 18px; max-height: 18px;" />
+                                        Excluir
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function confirmarExclusao(url) {
+        if (confirm("Tem certeza que deseja excluir?")) {
+            window.location.href = url;
+        } else {
+            // Não faz nada, cancela a ação de exclusão
+        }
+    }
+</script>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content text-capitalize">
+            <div class="modal-body">
+                <div id="conteudoModal"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".details").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/Datas/Details?id=" + id, function () {
+                    $('#myModal').modal("show");
+                })
+            });
+
+            $(".edit").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/Datas/Edit?id=" + id, function () {
+                    $("#myModal").modal('show');
+                })
+            });
+
+            $(".create").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/Datas/Create", function () {
+                    $("#myModal").modal('show');
+                })
+            });
+
+        })
+    </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Projeto_Integrador.Areas.Identity.Data
+
+@model Projeto_Integrador.Models.Models.CadDoacao
+
+@inject UserManager<UsuarioModel> UserManager
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = null;
+}
+
+<div class="modal-header d-flex justify-content-between align-items-center bg-light">
+    <h5 class="modal-title">Agendar Doação</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+
+
+<form asp-action="Create" class="container mt-4">
+
+
+    <div class="row m-0">
+        <div class="row-md-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdLocal" class="control-label"> Local </label>
+                <select class="form-select mb-2" asp-for="IdLocal" asp-items="@ViewBag.IdLocal">
+                    <option selected value="">Selecione um Local</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="IdData" class="control-label"> Data </label>
+                <select class="form-select mb-4" asp-for="IdData" asp-items="@ViewBag.IdData">
+                    <option selected value="">Selecione uma data</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input asp-for="IdStatus" class="form-control mb-2" value="1" hidden />
+                <span asp-validation-for="IdStatus" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input asp-for="IdFichaUsuario" class="form-control mb-5" value="@UserManager.GetUserId(User)" hidden />
+                <span asp-validation-for="IdFichaUsuario" class="text-danger"></span>
+            </div>
+        </div>
+ 
+
+        <div class="modal-footer bg-light">
+            <div class="ms-auto">
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+
+    </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

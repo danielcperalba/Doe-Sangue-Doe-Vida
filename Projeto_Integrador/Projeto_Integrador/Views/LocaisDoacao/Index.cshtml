@@ -1,0 +1,204 @@
+﻿@model IEnumerable<Projeto_Integrador.ViewModel.LocalDoacaoVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
+    <div class="container-fluid">
+        <div class="row shadow-sm bg-light m-md-5">
+            <div class="row bg-light mt-0 d-flex align-items-center">
+                <div class="col">
+                    <h2 class="text-muted">Gerenciamento de Hemocentros</h2>
+                </div>
+
+                <div class="col-auto me-xxl-4">
+                    <button class="create btn-sm d-flex align-items-center gap-1">
+                        <img src="~/imgs/plus-lg.svg" style="width: 1rem; height: 1rem; filter: invert(1);" />
+                        Novo Local
+                    </button>
+                </div>
+                <hr class="col-12 mt-0" />
+            </div>
+
+            <table class="table mt-3 mb-5 table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center align-middle text-capitalize text-light bg-dark">
+                            @Html.DisplayNameFor(model => model.id)
+                        </th>
+                        <th class="text-center align-middle text-capitalize text-light bg-dark">
+                            @Html.DisplayNameFor(model => model.nome)
+                        </th>
+                        <th class="text-center align-middle text-capitalize text-light bg-dark">
+                            @Html.DisplayNameFor(model => model.email)
+                        </th>
+                        <th class="text-center align-middle text-capitalize text-light bg-dark">
+                            @Html.DisplayNameFor(model => model.telefone)
+                        </th>
+                        <th class="text-center align-middle text-capitalize text-light bg-dark">
+                            @Html.DisplayNameFor(model => model.rua)
+                        </th>
+                        <th class="text-center align-middle text-capitalize text-light bg-dark">
+                            @Html.DisplayNameFor(model => model.num)
+                        </th>
+                        <th class="text-center align-middle text-capitalize text-light bg-dark">
+                            @Html.DisplayNameFor(model => model.comple)
+                        </th>
+                        <th class="text-center align-middle text-capitalize text-light bg-dark">
+                            @Html.DisplayNameFor(model => model.cep)
+                        </th>
+                        <th class="text-center align-middle text-capitalize text-light bg-dark">
+                            @Html.DisplayNameFor(model => model.bairro)
+                        </th>
+                        <th class="text-center align-middle text-capitalize text-light bg-dark">
+                            @Html.DisplayNameFor(model => model.cidade)
+                        </th>
+                        <th class="text-center align-middle text-capitalize text-light bg-dark">
+                            @Html.DisplayNameFor(model => model.estado)
+                        </th>
+                        <th class="text-center align-middle text-capitalize text-light bg-dark">
+                            @Html.DisplayNameFor(model => model.ativo)
+                        </th>
+                        <th class="text-center align-middle text-capitalize text-light bg-dark"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-center align-middle ">
+                                @Html.DisplayFor(modelItem => item.id)
+                            </td>
+                            <td class="text-center align-middle ">
+                                @Html.DisplayFor(modelItem => item.nome)
+                            </td>
+                            <td class="text-center align-middle ">
+                                @Html.DisplayFor(modelItem => item.email)
+                            </td>
+                            <td class="text-center align-middle ">
+                                @Html.DisplayFor(modelItem => item.telefone)
+                            </td>
+                            <td class="text-center align-middle ">
+                                @Html.DisplayFor(modelItem => item.rua)
+                            </td>
+                            <td class="text-center align-middle ">
+                                @Html.DisplayFor(modelItem => item.num)
+                            </td>
+                            <td class="text-center align-middle ">
+                                @Html.DisplayFor(modelItem => item.comple)
+                            </td>
+                            <td class="text-center align-middle ">
+                                @Html.DisplayFor(modelItem => item.cep)
+                            </td>
+                            <td class="text-center align-middle ">
+                                @Html.DisplayFor(modelItem => item.bairro)
+                            </td>
+                            <td class="text-center align-middle ">
+                                @Html.DisplayFor(modelItem => item.cidade)
+                            </td>
+                            <td class="text-center align-middle ">
+                                @Html.DisplayFor(modelItem => item.estado)
+                            </td>
+                            <td class="text-center align-middle ">
+                                @if (item.ativo == 1)
+                                {
+                                    <text>Sim</text>
+                                }
+                                else
+                                {
+                                    <text>Não</text>
+                                }
+                            </td>
+
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn rounded-circle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f0f0f0; border: none;">
+                                        ...
+                                    </button>
+                                    <ul class="dropdown-menu" style="position: absolute !important; width: 150px; border: none;">
+                                        <li>
+                                            <div class="d-flex align-items-center">
+                                                <button class="btn details dropdown-item" data-value="@item.id">
+                                                    <img src="~/imgs/book-half.svg" />
+                                                    Detalhes
+                                                </button>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex align-items-center">
+                                                <button class="btn edit dropdown-item" data-value="@item.id">
+                                                    <img src="~/imgs/pencil-square.svg" />
+                                                    Editar
+                                                </button>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex align-items-center">
+                                                <a href="#" class="btn Delete" onclick="confirmarExclusao('@Url.Action("Delete", new { id = item.id })')">
+                                                    <img src="~/imgs/trash-fill.svg" style="max-width: 18px; max-height: 18px;" />
+                                                    Excluir
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+<script>
+    function confirmarExclusao(url) {
+        if (confirm("Tem certeza que deseja excluir?")) {
+            window.location.href = url;
+        } else {
+            // Não faz nada, cancela a ação de exclusão
+        }
+    }
+</script>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content text-capitalize">
+            <div class="modal-body">
+                <div id="conteudoModal"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".details").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/LocaisDoacao/Details?id=" + id, function () {
+                    $('#myModal').modal("show");
+                })
+            });
+
+            $(".edit").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/LocaisDoacao/Edit?id=" + id, function () {
+                    $("#myModal").modal('show');
+                })
+            });
+
+            $(".create").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/LocaisDoacao/Create", function () {
+                    $("#myModal").modal('show');
+                })
+            });
+
+        })
+    </script>
+}
+
+
+
