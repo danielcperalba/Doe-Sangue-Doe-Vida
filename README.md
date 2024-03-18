@@ -32,7 +32,7 @@ Este projeto é um sistema de agendamento de doação de sangue, desenvolvido co
 - **Visual Studio:** Recomendado para desenvolvimento.
 - **SQL Server:** Para criar e gerenciar o banco de dados.
 - **.NET Framework:** Certifique-se de que o .NET Framework esteja instalado no seu sistema.
-- `git clone https://github.com/Marcosvco13/Projeto_Integrador_2.git`
+- `git clone https://github.com/danielcperalba/Doe-Sangue-Doe-Vida`
 
 #### Configurar o Banco de Dados
 
@@ -53,6 +53,6 @@ Este projeto é distribuído sob a licença MIT. Consulte o arquivo LICENSE para
 
 ### Contato
 
-Para dúvidas ou informações adicionais, entre em contato com Marcos Vinícius via e-mail: groupdevsfreela@gmail.com
+Para dúvidas ou informações adicionais, entre em contato com Daniel Peralba via e-mail: groupdevsfreela@gmail.com
 
 Esperamos que este sistema de agendamento de doação de sangue ajude a facilitar o processo de doação e contribua para a causa de salvar vidas. Agradecemos por usar nosso software!
